@@ -1,21 +1,22 @@
-// Ensure JavaScript runs after the HTML document has fully loaded
+// Wait until the HTML document is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
 
     // Select DOM elements
     const addButton = document.getElementById('add-btn'); // "Add Task" button
-    const taskInput = document.getElementById('task-input'); // Input field for tasks
-    const taskList = document.getElementById('task-list'); // UL to display tasks
+    const taskInput = document.getElementById('task-input'); // Input field for new tasks
+    const taskList = document.getElementById('task-list'); // UL element to display tasks
 
     // Function to add a new task
     function addTask() {
-        const taskText = taskInput.value.trim(); // Get and trim input
+        const taskText = taskInput.value.trim(); // Get input value and trim whitespace
 
+        // Alert if input is empty
         if (taskText === '') {
-            alert('Please enter a task'); // Prompt if input is empty
+            alert('Please enter a task');
             return;
         }
 
-        // Create a new list item for the task
+        // Create a new list item
         const li = document.createElement('li');
         li.textContent = taskText;
 
@@ -24,12 +25,12 @@ document.addEventListener('DOMContentLoaded', function() {
         removeBtn.textContent = 'Remove';
         removeBtn.setAttribute('class', 'remove-btn'); // Set class without classList
 
-        // Remove task when the remove button is clicked
+        // Remove task when button is clicked
         removeBtn.onclick = function() {
             taskList.removeChild(li);
         };
 
-        // Append the remove button to the list item
+        // Append remove button to the list item
         li.appendChild(removeBtn);
 
         // Append the list item to the task list
@@ -50,3 +51,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 });
+s
